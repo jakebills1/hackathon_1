@@ -1,11 +1,6 @@
 Rails.application.routes.draw do
   root "trips#index"
 
-  get 'locations/index'
-  get 'locations/show'
-  get 'locations/new'
-  get 'locations/edit'
-
   devise_for :users 
   
   resources :users, only: [:show] do 
@@ -13,7 +8,7 @@ Rails.application.routes.draw do
   end
 
   resources :trips, only: [:show, :index, :create, :edit, :update] do
-    resources :locations, except: [:index, :show, :new, :edit]
+    resources :locations, except: [:index, :show]
   end
   
   resources :locations, only: [] do
