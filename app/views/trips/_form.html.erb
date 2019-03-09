@@ -1,0 +1,9 @@
+<%= form_for @trip do |f| %>
+  <%= f.label :name, required: true %>
+  <br />
+  <%= f.text_field :name %>
+  <br />
+  
+  <%= f.submit %>
+
+<% end %>

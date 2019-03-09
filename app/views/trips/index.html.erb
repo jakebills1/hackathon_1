@@ -1,0 +1,8 @@
+<h1>Trip Tracker</h1>
+<br />
+<div class='trip-index'>
+<% @trips.each do |trip| %>
+<%= link_to trip.name, trip_path(trip), class: 'trip-index'%>
+<% end %>
+</div>
+<%= link_to 'Add Trip', new_trip_path %>
