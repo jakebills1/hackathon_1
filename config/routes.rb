@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     resources :trips, except: [:index, :show, :edit]
   end
 
-  resources :trips, only: [:show, :index, :create] do
+  resources :trips, only: [:show, :index, :create, :edit, :update] do
     resources :locations, except: [:index, :show, :new, :edit]
   end
   
