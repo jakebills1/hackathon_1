@@ -2,6 +2,9 @@
 <div class="navbar">
     <div class="navbar__left">
         <p class="navbar__heading"> Trip Tracker </p>
+        <% if @trip %>
+            <%= link_to "Add Location", locations_new_path, class: "navbar__add-location" %>
+        <% end %>
     </div>
 
 

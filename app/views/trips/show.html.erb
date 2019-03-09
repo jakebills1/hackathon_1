@@ -2,13 +2,12 @@
 <%# <div class="wallpaper" style="background-image: url(/assets/mountain.jpg);" >
 </div> %>
 
-<p>trip name <%= @trip.name %> </p>
-<%= link_to "Add Location", locations_new_path %>
+<h1 class="trip-location">Locations On Trip</h1>
 <hr>
 <% @trip.locations.each() do |location| %>
     <div class="show__location">
-        <p> city: <%= location.city %> </p>
-        <p> address: <%= location.address.street_address %> </p>
+        <p> Location: <%= location.city %>  <%= link_to "Edit", locations_edit_path  %> </p>
+        <p> Address: <%= location.address.street_address %> <%= link_to "Edit", edit_location_address_path(location.id, location.address.id)  %> </p>
         <%= link_to "Add Address", new_location_address_path(location.id) %>
     </div>
 <% end %>
