@@ -1,4 +1,10 @@
 
+.button:link
+.button:visited {
+    text-decoration: none;
+
+}
+
 
 .wallpaper {
     position: absolute;
@@ -8,4 +14,35 @@
     background-position: bottom;
     background-repeat: none;
     background-size: cover;
+}
+
+.trip-location {
+    color: #007bff;
+    margin-top: 1rem;
+    font-size: 5rem ;
+}
+
+.show {
+
+    &__location-container {
+        width: 100vw;
+        height: 100%;
+        border: 1px, solid, black;
+        overflow: scroll;
+
+    }
+    &__location {
+        height: 15rem;
+        width: 100%;
+        background-color: rgba(0,0,0,0.7);
+        border-radius: 3px;
+        margin: 2rem 0;
+        color: white;
+        padding: 1rem;
+        font-size: 2rem;
+
+        a {
+            font-size: 1.5rem;
+        }
+    }
 }
