@@ -5,7 +5,7 @@
 User.destroy_all();
 
 User.create(
-    avatar: "https://robohash.org/#{Faker::Color.hex_color()}",
+    avatar: Faker::Avatar.image(),
     first_name: Faker::Name.first_name(),
     last_name: Faker::Name.last_name(),
     email: "fake@mail.com",
@@ -15,7 +15,7 @@ User.create(
 
 for i in (1..5)
     user = User.create(
-        avatar: "https://robohash.org/#{Faker::Color.hex_color()}",
+        avatar: Faker::Avatar.image(),
         first_name: Faker::Name.first_name(),
         last_name: Faker::Name.last_name(),
         email: Faker::Internet.email(),
