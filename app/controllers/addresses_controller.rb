@@ -1,6 +1,5 @@
 class AddressesController < ApplicationController
   
- 
     before_action :set_location
     before_action :set_address, only: [:show, :edit, :update, :destroy]
   
@@ -14,25 +13,25 @@ class AddressesController < ApplicationController
   
     def new
       @address = @location.addresses.new
-      
+      render partial: "form"
     end
   
     def create
       @address = @location.addresses.new(address_params)
       if @address.save
-        # redirect_to [@location, @address]
+        redirect_to @trip
       else
         render :new
       end
     end
   
     def edit
-      @address = @location.addresses.find(address_params)
+      render partial: "form"
     end
   
     def update
       if @address.update(address_params)
-        # redirect_to [@location, @address]
+        redirect_to @trip
       else
         render :edit
       end
@@ -40,7 +39,7 @@ class AddressesController < ApplicationController
   
     def destroy
       @address.destroy
-      # redirect_to [@location, @address]
+      redirect_to @trip
     end
   
     private
