@@ -9,10 +9,10 @@ Rails.application.routes.draw do
   devise_for :users 
   
   resources :users, only: [:show] do 
-    resources :trips, except: [:index, :show, :new, :edit]
+    resources :trips, except: [:index, :show, :edit]
   end
 
-  resources :trips, only: [:show, :index] do
+  resources :trips, only: [:show, :index, :create] do
     resources :locations, except: [:index, :show, :new, :edit]
   end
   
