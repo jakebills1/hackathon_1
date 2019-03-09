@@ -5,6 +5,13 @@ Rails.application.routes.draw do
   get 'locations/show'
   get 'locations/new'
   get 'locations/edit'
+
+  get 'addresses/index'
+  get 'addresses/show'
+  get 'addresses/new'
+  get 'addresses/edit'
+
+
   devise_for :users 
   
   resources :users, only: [:show] do 
