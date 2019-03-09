@@ -1,9 +1,9 @@
-<h1>Trip Tracker</h1>
+<h1>Trip Tracker for <%= current_user.full_name %></h1>
 <br />
 <div class='trip-index'>
 <% @trips.each do |trip| %>
 <%= link_to trip.name, trip_path(trip), class: 'trip-index'%>
 <% end %>
 </div>
-<%= link_to 'Add Trip', new_trip_path %>
+<%= link_to 'Add Trip', user_trips_path(current_user) %>
 <%= button_to "Log Out", destroy_user_session_path, method: :delete %>
