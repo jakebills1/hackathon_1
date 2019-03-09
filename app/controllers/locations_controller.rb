@@ -1,5 +1,5 @@
 class LocationsController < ApplicationController
-  before_action :set_trip
+  before_action :set_trip, except: [:new]
   before_action :set_location, only:[:update, :destroy]
 
   def index
@@ -9,8 +9,12 @@ class LocationsController < ApplicationController
   end
 
   def new
+<<<<<<< HEAD
     @location = Location.new
     # @trip = Trip.find(params[:id])
+=======
+    render partial: "form"
+>>>>>>> origin/master
   end
 
   def create
