@@ -12,14 +12,17 @@ class AddressesController < ApplicationController
     end
   
     def new
-      @address = @location.addresses.new
+      @address = Address.new()
       render partial: "form"
     end
   
     def create
-      @address = @location.addresses.new(address_params)
+      @address = Address.new(
+        street_address: params[:street_address],
+        location_id: @location.id,
+      )
       if @address.save
-        redirect_to @trip
+        redirect_to trip_path(@location.trip.id)
       else
         render :new
       end
@@ -31,7 +34,7 @@ class AddressesController < ApplicationController
   
     def update
       if @address.update(address_params)
-        redirect_to @trip
+        redirect_to trip_path
       else
         render :edit
       end
