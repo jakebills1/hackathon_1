@@ -1,0 +1,41 @@
+<h1><%= @location.id ? 'Edit Location' : 'Add a Location' %></h1>
+<hr />
+
+<% if @location.id %>
+  <%= form_for @location, url: "/trips/#{@trip.id}/locations/#{@location.id}", method: :put do |f| %>
+    <div class="form-control">
+      <%= f.label :city %>
+      <%= f.text_field :city, placeholder: "City" %>
+    </div>
+    <div class="form-control">
+      <%= f.label :state %>
+      <%= f.text_field :state, placeholder: "State/Province" %>
+    </div>
+    <div class="form-control">
+      <%= f.label :country %>
+      <%= f.text_field :country, placeholder: "Country" %>
+    </div>
+    <%= f.submit %>
+  <% end %>
+  
+
+<% else %>
+  <%= form_for @location, url: "/trips/#{@trip.id}/locations", method: :post  do |f| %>
+  <div class="form-control">
+      <%= f.label :city %>
+      <%= f.text_field :city, placeholder: "City" %>
+    </div>
+    <div class="form-control">
+      <%= f.label :state %>
+      <%= f.text_field :state, placeholder: "State/Province" %>
+    </div>
+    <div class="form-control">
+      <%= f.label :country %>
+      <%= f.text_field :country, placeholder: "Country" %>
+    </div>
+    <%= f.submit %>
+  <% end %>
+
+<% end %>
+
+

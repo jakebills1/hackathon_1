@@ -1,2 +1,4 @@
-<h1>Locations#edit</h1>
-<p>Find me in app/views/locations/edit.html.erb</p>
+
+
+<%= render 'form', trip: @trip, location: @location %>
+<%= link_to 'Back', trip_locations_path(@trip) %>
