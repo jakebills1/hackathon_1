@@ -1,12 +1,17 @@
 Rails.application.routes.draw do
+  root "trips#index"
 
+  get 'locations/index'
+  get 'locations/show'
+  get 'locations/new'
+  get 'locations/edit'
   devise_for :users 
   
   resources :users, only: [:show] do 
     resources :trips, except: [:index, :show, :new, :edit]
   end
 
-  resources :trips, only: [:show] do
+  resources :trips, only: [:show, :index] do
     resources :locations, except: [:index, :show, :new, :edit]
   end
   
