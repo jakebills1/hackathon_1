@@ -9,5 +9,6 @@
     <div class="show__location">
         <p> city: <%= location.city %> </p>
         <p> address: <%= location.address.street_address %> </p>
+        <%= link_to "Add Address", new_location_address_path(location.id) %>
     </div>
 <% end %>

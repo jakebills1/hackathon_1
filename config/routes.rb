@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   end
   
   resources :locations, only: [] do
-    resources :addresses, except: [:index, :show, :new, :edit]
+    resources :addresses, except: [:index, :show]
   end
 
   # create"locations/:location_id/adresses" => "addresses#create"
