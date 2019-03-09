@@ -12,12 +12,12 @@ class AddressesController < ApplicationController
     end
   
     def new
-      @address = @location.addresses.new
+      @address = @location.address.new
       render partial: "form"
     end
   
     def create
-      @address = @location.addresses.new(address_params)
+      @address = @location.address.new(address_params)
       if @address.save
         redirect_to @trip
       else

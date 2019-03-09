@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   root "trips#index"
 
-  get 'locations/index'
-  get 'locations/show'
-  get 'locations/new'
-  get 'locations/edit'
+  # get 'locations/index'
+  # get 'locations/show'
+  # get 'locations/new'
+  # get 'locations/edit'
 
   devise_for :users 
   
