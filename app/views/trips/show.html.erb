@@ -6,3 +6,5 @@
     <p> address: <%= location.address.street_address %> </p>
     <hr>
 <% end %>
+<%= link_to 'Edit Trip', edit_trip_path(@trip) %>
+<%= link_to 'Delete Trip', [current_user, @trip], method: :delete %>
