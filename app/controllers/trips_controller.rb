@@ -1,19 +1,20 @@
 class TripsController < ApplicationController
+  before_action :authenticate_user!
   before_action :trip, except: [:index, :new, :create]
 
   def index
-    @trips = Trip.all
+    @trips = current_user.trips
   end
 
   def show
   end
 
   def new
-    @trip = Trip.new
+    @trip = current_user.trips
   end
 
   def create
-    @trip = Trip.new(trip_params)
+    @trip = current_user.accounts.new(trip_params)
     if @trip.save
     redirect_to trips_path
     else
@@ -40,10 +41,10 @@ class TripsController < ApplicationController
   private
 
     def trip
-      @trip = Trip.find(params[:id])
+      @trip = current_user.trips.find(params[:id])
     end
 
     def trip_params
-      params.require(:trip).permit(:name, :date)
+      params.require(:trip).permit(:name)
     end
 end
