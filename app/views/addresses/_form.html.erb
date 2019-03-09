@@ -1,0 +1,8 @@
+<h1><%= @address.id ? "Edit Address" : "New Address" %></h1>
+<hr />
+<%= form_for [@location, @address] do |f| %>
+  <%= f.label :address %>
+  <%= f.text_field :street_address, autofocus: true %>
+ 
+  <%= f.submit %>
+<% end%>
