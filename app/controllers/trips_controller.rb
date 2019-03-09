@@ -11,6 +11,7 @@ class TripsController < ApplicationController
 
   def new
     @trip = current_user.trips
+    render partial: "form"
   end
 
   def create
