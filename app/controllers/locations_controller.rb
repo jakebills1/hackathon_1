@@ -9,6 +9,8 @@ class LocationsController < ApplicationController
   end
 
   def new
+    @location = Location.new
+    # @trip = Trip.find(params[:id])
   end
 
   def create
@@ -17,7 +19,7 @@ class LocationsController < ApplicationController
     if @location.save
       redirect_to @trip
     else
-      render "trips/#{@trip.id}"
+      render partial: "form"
     end
   end
 
@@ -28,7 +30,7 @@ class LocationsController < ApplicationController
     if @location.save
       redirect_to @trip
     else
-      render "trips/#{@trip.id}"
+      render partial: "form"
     end
   end
 

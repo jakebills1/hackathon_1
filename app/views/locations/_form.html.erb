@@ -1,0 +1,17 @@
+<h1><%= @location.id ? 'Edit Location' : 'Add a Location' %></h1>
+<hr />
+<%= form_for @location, url: "/trips/#{@trip.id}/locations"  do |f| %>
+  <div class="form-control">
+    <%= f.label :city %>
+    <%= f.text_field :city, placeholder: "City" %>
+  </div>
+  <div class="form-control">
+    <%= f.label :state %>
+    <%= f.text_field :city, placeholder: "State/Province" %>
+  </div>
+  <div class="form-control">
+    <%= f.label :country %>
+    <%= f.text_field :city, placeholder: "Country" %>
+  </div>
+  <%= f.submit %>
+<% end %>
