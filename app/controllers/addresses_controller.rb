@@ -34,7 +34,7 @@ class AddressesController < ApplicationController
   
     def update
       if @address.update(address_params)
-        redirect_to trip_path
+        redirect_to trip_path(@location.trip.id)
       else
         render :edit
       end
