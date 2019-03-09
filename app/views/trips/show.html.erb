@@ -8,7 +8,7 @@
 
 <% @trip.locations.each() do |location| %>
     <div class="show__location">
-        <p> Location: <%= location.city %>  <%= link_to "Edit", locations_edit_path  %> </p>
+        <p> Location: <%= location.city %>  <%= link_to "Edit", edit_trip_location_path(@trip.id, location.id)  %> </p>
         <p> Address: <%= location.address.street_address %> <%= link_to "Edit", edit_location_address_path(location.id, location.address.id)  %> </p>
         <%= link_to "Add Address", new_location_address_path(location.id) %>
     </div>
