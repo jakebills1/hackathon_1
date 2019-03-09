@@ -11,3 +11,5 @@
         <%= link_to "Add Address", new_location_address_path(location.id) %>
     </div>
 <% end %>
+<%= link_to 'Edit Trip', edit_trip_path(@trip) %>
+<%= link_to 'Delete Trip', [current_user, @trip], method: :delete %>
