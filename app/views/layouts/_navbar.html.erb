@@ -1,8 +1,24 @@
 
 <div class="navbar">
     <div class="navbar__left">
+        <p class="navbar__heading"> Trip Tracker </p>
     </div>
 
+
+    <% if @trip %>
+        <div class="navbar__trip">
+            <%= @trip.name %>
+        </div>
+    <% end %>
+
     <div class="navbar__right">
+        <% if current_user %>
+            <a href="/trips">
+                <div class="navbar__user">
+                    <p class= "navbar__user-name" > <%= current_user.first_name %> </p>
+                    <img class="navbar__user-avatar" src="<%= current_user.avatar %>" ></img>
+                </div>
+                </a>
+        <% end %>
     </div>
 </div>
