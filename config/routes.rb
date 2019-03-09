@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root "trips#index"
 
   devise_for :users 
   
@@ -6,7 +7,7 @@ Rails.application.routes.draw do
     resources :trips, except: [:index, :show, :new, :edit]
   end
 
-  resources :trips, only: [:show] do
+  resources :trips, only: [:show, :index] do
     resources :locations, except: [:index, :show, :new, :edit]
   end
   
