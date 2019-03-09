@@ -1,6 +1,6 @@
 class LocationsController < ApplicationController
-  before_action :set_trip, except: [:new]
-  before_action :set_location, only:[:update, :destroy]
+  before_action :set_trip
+  before_action :set_location, only:[:edit, :update, :destroy]
 
   def index
   end
@@ -9,12 +9,8 @@ class LocationsController < ApplicationController
   end
 
   def new
-<<<<<<< HEAD
     @location = Location.new
     # @trip = Trip.find(params[:id])
-=======
-    render partial: "form"
->>>>>>> origin/master
   end
 
   def create
@@ -31,7 +27,7 @@ class LocationsController < ApplicationController
   end
 
   def update
-    if @location.save
+    if @location.update(location_params)
       redirect_to @trip
     else
       render partial: "form"
@@ -53,6 +49,6 @@ class LocationsController < ApplicationController
     end
 
     def location_params
-      params.require(:location).permit(:city, :state, :country, :trip_id)
+      params.require(:location).permit(:city, :state, :country)
     end
 end
