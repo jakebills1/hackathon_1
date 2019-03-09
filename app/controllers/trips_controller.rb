@@ -1,6 +1,6 @@
 class TripsController < ApplicationController
   before_action :authenticate_user!
-  before_action :trip, except: [:index, :new, :create]
+  before_action :set_trip, except: [:index, :new, :create]
 
   def index
     @trips = current_user.trips
@@ -10,12 +10,12 @@ class TripsController < ApplicationController
   end
 
   def new
-    @trip = current_user.trips
+    @trip = current_user.trips.new
     render partial: "form"
   end
 
   def create
-    @trip = current_user.trips.new
+    @trip = current_user.trips.new(trip_params)
     if @trip.save
       redirect_to trips_path
     else
@@ -41,7 +41,7 @@ class TripsController < ApplicationController
 
   private
 
-    def trip
+    def set_trip
       @trip = current_user.trips.find(params[:id])
     end
 
