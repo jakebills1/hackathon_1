@@ -7,9 +7,11 @@ Rails.application.routes.draw do
   end
 
   resources :trips, only: [:show] do
-    resources :locations, except: [:index, :show, :new, :edit] do
-      resources :addresses, except: [:index, :show, :new, :edit]
-    end
+    resources :locations, except: [:index, :show, :new, :edit]
+  end
+  
+  resources :locations, only: [] do
+    resources :addresses, except: [:index, :show, :new, :edit]
   end
 
   # create"locations/:location_id/adresses" => "addresses#create"
