@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'locations/index'
+  get 'locations/show'
+  get 'locations/new'
+  get 'locations/edit'
   devise_for :users 
   
   resources :users, only: [:show] do 
