@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   devise_for :users 
   
   resources :users, only: [:show] do 
-    resources :trips, except: [:index, :show, :new, :edit]
+    resources :trips, except: [:index, :show, :edit]
   end
 
   resources :trips, only: [:show, :index] do

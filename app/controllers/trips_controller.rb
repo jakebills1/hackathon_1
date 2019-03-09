@@ -11,12 +11,13 @@ class TripsController < ApplicationController
 
   def new
     @trip = current_user.trips
+    render partial: "form"
   end
 
   def create
-    @trip = current_user.trips.new(trip_params)
+    @trip = current_user.trips.new
     if @trip.save
-    redirect_to trips_path
+      redirect_to trips_path
     else
       render :new
     end
